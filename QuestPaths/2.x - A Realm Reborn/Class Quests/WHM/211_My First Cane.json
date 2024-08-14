@@ -1,24 +1,24 @@
 {
   "$schema": "https://git.carvel.li/liza/Questionable/raw/branch/master/QuestPaths/quest-v1.json",
-  "Author": "Cacahuetes",
+  "Author": "liza",
   "QuestSequence": [
     {
       "Sequence": 0,
       "Steps": [
         {
-          "DataId": 1000323,
+          "DataId": 1000692,
           "Position": {
-            "X": -234.02765,
-            "Y": -4.0000043,
-            "Z": -11.093384
+            "X": -258.8083,
+            "Y": -5.7735243,
+            "Z": -27.267883
           },
           "TerritoryId": 133,
+          "InteractionType": "AcceptQuest",
           "AetheryteShortcut": "Gridania",
           "AethernetShortcut": [
             "[Gridania] Aetheryte Plaza",
             "[Gridania] Conjurers' Guild"
           ],
-          "InteractionType": "AcceptQuest",
           "SkipConditions": {
             "AetheryteShortcutIf": {
               "InSameTerritory": true,
@@ -32,28 +32,6 @@
     },
     {
       "Sequence": 1,
-      "Steps": [
-        {
-          "DataId": 1000692,
-          "Position": {
-            "X": -258.8083,
-            "Y": -5.7735243,
-            "Z": -27.267883
-          },
-          "TerritoryId": 133,
-          "InteractionType": "Interact",
-          "DialogueChoices": [
-            {
-              "Type": "YesNo",
-              "Prompt": "TEXT_CLSCNJ000_00022_Q1_000_1",
-              "Yes": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Sequence": 2,
       "Steps": [
         {
           "Position": {
