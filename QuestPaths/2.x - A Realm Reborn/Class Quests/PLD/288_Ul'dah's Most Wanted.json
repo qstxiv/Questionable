@@ -34,23 +34,22 @@
       "Sequence": 1,
       "Steps": [
         {
-          "DataId": 1004225,
+          "DataId": 1002296,
           "Position": {
-            "X": 62.974,
-            "Y": 54.60642,
-            "Z": 284.90112
+            "X": -139.42175,
+            "Y": 4.019726,
+            "Z": 205.0354
           },
-          "TerritoryId": 140,
+          "TerritoryId": 141,
           "InteractionType": "Combat",
           "EnemySpawnType": "AfterInteraction",
-          "KillEnemyDataIds": [
-            1243
-          ],
           "AethernetShortcut": [
             "[Ul'dah] Gladiators' Guild",
-            "[Ul'dah] Gate of the Sultana (Western Thanalan)"
+            "[Ul'dah] Gate of Nald (Central Thanalan)"
           ],
-          "Fly": true
+          "KillEnemyDataIds": [
+            1245
+          ]
         }
       ]
     },
@@ -58,13 +57,13 @@
       "Sequence": 2,
       "Steps": [
         {
-          "DataId": 1004225,
+          "DataId": 1002296,
           "Position": {
-            "X": 62.974,
-            "Y": 54.60642,
-            "Z": 284.90112
+            "X": -139.42175,
+            "Y": 4.019726,
+            "Z": 205.0354
           },
-          "TerritoryId": 140,
+          "TerritoryId": 141,
           "InteractionType": "Interact"
         }
       ]
@@ -85,7 +84,15 @@
           "AethernetShortcut": [
             "[Ul'dah] Aetheryte Plaza",
             "[Ul'dah] Gladiators' Guild"
-          ]
+          ],
+          "SkipConditions": {
+            "AetheryteShortcutIf": {
+              "InSameTerritory": true,
+              "InTerritory": [
+                131
+              ]
+            }
+          }
         }
       ]
     },
@@ -93,14 +100,18 @@
       "Sequence": 4,
       "Steps": [
         {
-          "DataId": 1002277,
+          "DataId": 2001756,
           "Position": {
-            "X": -97.550964,
-            "Y": 7.05,
-            "Z": 23.605652
+            "X": 27.206787,
+            "Y": 12.985352,
+            "Z": 51.83484
           },
-          "TerritoryId": 131,
-          "InteractionType": "Interact"
+          "TerritoryId": 141,
+          "InteractionType": "SinglePlayerDuty",
+          "AethernetShortcut": [
+            "[Ul'dah] Gladiators' Guild",
+            "[Ul'dah] Gate of Nald (Central Thanalan)"
+          ]
         }
       ]
     },
@@ -108,22 +119,15 @@
       "Sequence": 5,
       "Steps": [
         {
-          "DataId": 1004141,
+          "DataId": 1003945,
           "Position": {
-            "X": -520.5005,
-            "Y": -21.460285,
-            "Z": 123.46069
+            "X": 24.917969,
+            "Y": 13,
+            "Z": 50.156372
           },
-          "TerritoryId": 145,
-          "InteractionType": "SinglePlayerDuty",
-          "AetheryteShortcut": "Eastern Thanalan - Camp Drybone",
-          "DialogueChoices": [
-            {
-              "Type": "List",
-              "Prompt": "TEXT_CLSGLA250_00264_Q1_000_170",
-              "Answer": "TEXT_CLSGLA250_00264_A1_000_180"
-            }
-          ]
+          "StopDistance": 5,
+          "TerritoryId": 141,
+          "InteractionType": "Interact"
         }
       ]
     },
@@ -140,11 +144,18 @@
           "TerritoryId": 131,
           "InteractionType": "CompleteQuest",
           "AetheryteShortcut": "Ul'dah",
+          "DialogueChoices": [
+            {
+              "Type": "List",
+              "Prompt": "TEXT_CLSGLA101_00288_Q1_000_160",
+              "Answer": "TEXT_CLSGLA101_00288_A1_000_161"
+            }
+          ],
           "AethernetShortcut": [
             "[Ul'dah] Aetheryte Plaza",
             "[Ul'dah] Gladiators' Guild"
           ],
-          "NextQuestId": 265
+          "NextQuestId": 262
         }
       ]
     }

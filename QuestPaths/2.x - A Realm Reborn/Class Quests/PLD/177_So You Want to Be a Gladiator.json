@@ -1,36 +1,36 @@
 {
   "$schema": "https://git.carvel.li/liza/Questionable/raw/branch/master/QuestPaths/quest-v1.json",
-  "Author": "Cacahuetes",
+  "Author": "liza",
   "QuestSequence": [
     {
       "Sequence": 0,
       "Steps": [
         {
-          "DataId": 1000294,
+          "DataId": 1002277,
           "Position": {
-            "X": -238.05603,
-            "Y": 8,
-            "Z": -142.93127
+            "X": -97.550964,
+            "Y": 7.05,
+            "Z": 23.605652
           },
-          "TerritoryId": 133,
-          "AetheryteShortcut": "Gridania",
+          "TerritoryId": 131,
+          "InteractionType": "AcceptQuest",
+          "AetheryteShortcut": "Ul'dah",
           "AethernetShortcut": [
-            "[Gridania] Aetheryte Plaza",
-            "[Gridania] Botanists' Guild"
+            "[Ul'dah] Aetheryte Plaza",
+            "[Ul'dah] Gladiators' Guild"
           ],
           "DialogueChoices": [
             {
               "Type": "YesNo",
-              "Prompt": "TEXT_CLSHRV999_00193_Q1_000_1",
+              "Prompt": "TEXT_CLSGLA001_00177_Q1_000_1",
               "Yes": true
             }
           ],
-          "InteractionType": "AcceptQuest",
           "SkipConditions": {
             "AetheryteShortcutIf": {
               "InSameTerritory": true,
               "InTerritory": [
-                133
+                131
               ]
             }
           }
