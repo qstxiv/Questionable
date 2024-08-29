@@ -1,4 +1,4 @@
-﻿{
+{
   "$schema": "https://git.carvel.li/liza/Questionable/raw/branch/master/QuestPaths/quest-v1.json",
   "Author": "Cacahuetes",
   "QuestSequence": [
@@ -6,7 +6,7 @@
       "Sequence": 0,
       "Steps": [
         {
-          "DataId": 1029998,
+          "DataId": 1031158,
           "Position": {
             "X": -26.657532,
             "Y": 3.999815,
@@ -29,15 +29,15 @@
       "Sequence": 1,
       "Steps": [
         {
-          "DataId": 1029999,
+          "DataId": 1030012,
           "Position": {
-            "X": 346.66968,
-            "Y": 3.2878497,
-            "Z": 177.17249
+            "X": 279.469,
+            "Y": 1.4685827,
+            "Z": -281.94098
           },
-          "TerritoryId": 813,
+          "TerritoryId": 815,
           "InteractionType": "Interact",
-          "AetheryteShortcut": "Lakeland - Fort Jobb"
+          "AetheryteShortcut": "Amh Araeng - Mord Souq"
         }
       ]
     },
@@ -45,15 +45,21 @@
       "Sequence": 2,
       "Steps": [
         {
+          "DataId": 2010002,
           "Position": {
-            "X": 340.6667,
-            "Y": 3.0521033,
-            "Z": 208.3552
+            "X": 279.65198,
+            "Y": 1.4800415,
+            "Z": -282.7345
           },
-          "TerritoryId": 813,
-          "InteractionType": "Combat",
-          "EnemySpawnType": "AutoOnEnterArea",
-          "KillEnemyDataIds": [10865]
+          "TerritoryId": 815,
+          "InteractionType": "Interact",
+          "DialogueChoices": [
+            {
+              "Type": "List",
+              "Prompt": "TEXT_LUCKBA221_03269_Q1_000_000",
+              "Answer": "TEXT_LUCKBA221_03269_A1_000_002"
+            }
+          ]
         }
       ]
     },
@@ -61,13 +67,28 @@
       "Sequence": 3,
       "Steps": [
         {
-          "DataId": 1030000,
+          "DataId": 1030013,
           "Position": {
-            "X": 341.02393,
-            "Y": 3.5819468,
-            "Z": 198.32141
+            "X": 612.3292,
+            "Y": -25.655535,
+            "Z": -36.66742
           },
-          "TerritoryId": 813,
+          "TerritoryId": 815,
+          "InteractionType": "Interact"
+        }
+      ]
+    },
+    {
+      "Sequence": 4,
+      "Steps": [
+        {
+          "DataId": 1030014,
+          "Position": {
+            "X": 614.46545,
+            "Y": -25.7535,
+            "Z": -35.6604
+          },
+          "TerritoryId": 815,
           "InteractionType": "Interact"
         }
       ]
@@ -92,7 +113,7 @@
           "SkipConditions": {
             "AetheryteShortcutIf": { "InSameTerritory": true }
           },
-          "NextQuestId": 3268
+          "NextQuestId": 3270
         }
       ]
     }

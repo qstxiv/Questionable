@@ -1,12 +1,12 @@
-﻿{
+{
   "$schema": "https://git.carvel.li/liza/Questionable/raw/branch/master/QuestPaths/quest-v1.json",
-  "Author": "Cacahuetes",
+  "Author": "AUTHOR",
   "QuestSequence": [
     {
       "Sequence": 0,
       "Steps": [
         {
-          "DataId": 1029998,
+          "DataId": 1031158,
           "Position": {
             "X": -26.657532,
             "Y": 3.999815,
@@ -29,15 +29,15 @@
       "Sequence": 1,
       "Steps": [
         {
-          "DataId": 1029999,
+          "DataId": 1030015,
           "Position": {
-            "X": 346.66968,
-            "Y": 3.2878497,
-            "Z": 177.17249
+            "X": -83.05487,
+            "Y": -19.061518,
+            "Z": 309.83435
           },
-          "TerritoryId": 813,
+          "TerritoryId": 817,
           "InteractionType": "Interact",
-          "AetheryteShortcut": "Lakeland - Fort Jobb"
+          "AetheryteShortcut": "Rak'tika - Slitherbough"
         }
       ]
     },
@@ -45,15 +45,16 @@
       "Sequence": 2,
       "Steps": [
         {
+          "DataId": 2010003,
           "Position": {
-            "X": 340.6667,
-            "Y": 3.0521033,
-            "Z": 208.3552
+            "X": 263.9048,
+            "Y": 12.436096,
+            "Z": 103.990234
           },
-          "TerritoryId": 813,
+          "TerritoryId": 817,
           "InteractionType": "Combat",
-          "EnemySpawnType": "AutoOnEnterArea",
-          "KillEnemyDataIds": [10865]
+          "EnemySpawnType": "AfterInteraction",
+          "KillEnemyDataIds": [10950]
         }
       ]
     },
@@ -61,14 +62,31 @@
       "Sequence": 3,
       "Steps": [
         {
-          "DataId": 1030000,
+          "DataId": 2010004,
           "Position": {
-            "X": 341.02393,
-            "Y": 3.5819468,
-            "Z": 198.32141
+            "X": 446.0669,
+            "Y": 8.041443,
+            "Z": 123.03345
           },
-          "TerritoryId": 813,
-          "InteractionType": "Interact"
+          "TerritoryId": 817,
+          "InteractionType": "Combat",
+          "EnemySpawnType": "AfterInteraction",
+          "KillEnemyDataIds": [10869]
+        }
+      ]
+    },
+    {
+      "Sequence": 4,
+      "Steps": [
+        {
+          "DataId": 1030017,
+          "Position": {
+            "X": 633.99695,
+            "Y": 24.12675,
+            "Z": 59.861084
+          },
+          "TerritoryId": 817,
+          "InteractionType": "SinglePlayerDuty"
         }
       ]
     },
@@ -92,7 +110,7 @@
           "SkipConditions": {
             "AetheryteShortcutIf": { "InSameTerritory": true }
           },
-          "NextQuestId": 3268
+          "NextQuestId": 3271
         }
       ]
     }
