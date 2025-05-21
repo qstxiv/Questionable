@@ -6,16 +6,17 @@
             "Sequence": 0,
             "Steps": [
                 {
-                    "DataId": 1009211,
+                    "DataId": 1009216,
                     "Position": {
-                        "X": 153.8872,
-                        "Y": -9.001622,
-                        "Z": 77.50049
+                        "X": 164.35486,
+                        "Y": -22.797548,
+                        "Z": 114.64099
                     },
                     "TerritoryId": 154,
                     "InteractionType": "AcceptQuest",
                     "AetheryteShortcut": "North Shroud - Fallgourd Float",
                     "Fly": true,
+                    "Land": true,
                     "SkipConditions": {
                         "AetheryteShortcutIf": {
                             "NearPosition": {
@@ -36,18 +37,20 @@
             "Sequence": 1,
             "Steps": [
                 {
-                    "DataId": 1009633,
+                    "DataId": 1009649,
                     "Position": {
-                        "X": 254.77979,
-                        "Y": -20.989405,
-                        "Z": 351.76624
+                        "X": 627.8019,
+                        "Y": 300.56494,
+                        "Z": -16.434021
                     },
-                    "TerritoryId": 154,
+                    "TerritoryId": 155,
                     "InteractionType": "Say",
+                    "AetheryteShortcut": "Coerthas Central Highlands - Camp Dragonhead",
                     "ChatMessage": {
-                        "Key": "TEXT_BANIXA104_01497_SYSTEM_100_062"
+                        "Key": "TEXT_BANIXA607_01568_SYSTEM_100_062"
                     },
-                    "Fly": true
+                    "Fly": true,
+                    "Land": true
                 }
             ]
         },
@@ -55,15 +58,15 @@
             "Sequence": 2,
             "Steps": [
                 {
-                    "DataId": 1009217,
+                    "DataId": 1009221,
                     "Position": {
-                        "X": 363.72925,
-                        "Y": -5.616498,
-                        "Z": 347.219
+                        "X": 202.13623,
+                        "Y": 301.99976,
+                        "Z": -253.55927
                     },
-                    "TerritoryId": 154,
+                    "TerritoryId": 155,
                     "InteractionType": "Interact",
-                    "Fly": true
+                    "AetheryteShortcut": "Coerthas Central Highlands - Camp Dragonhead"
                 }
             ]
         },
@@ -71,10 +74,10 @@
             "Sequence": 255,
             "Steps": [
                 {
-                    "TerritoryId": 154,
+                    "TerritoryId": 155,
                     "InteractionType": "Craft",
-                    "ItemId": 8094,
-                    "ItemCount": 3,
+                    "ItemId": 8127,
+                    "ItemCount": 2,
                     "SkipConditions": {
                         "StepIf": {
                             "Item": {
@@ -84,15 +87,30 @@
                     }
                 },
                 {
-                    "DataId": 1009211,
+                    "DataId": 1009216,
                     "Position": {
-                        "X": 153.8872,
-                        "Y": -9.001622,
-                        "Z": 77.50049
+                        "X": 164.35486,
+                        "Y": -22.797548,
+                        "Z": 114.64099
                     },
                     "TerritoryId": 154,
                     "InteractionType": "CompleteQuest",
-                    "Fly": true
+                    "AetheryteShortcut": "North Shroud - Fallgourd Float",
+                    "Fly": true,
+                    "Land": true,
+                    "SkipConditions": {
+                        "AetheryteShortcutIf": {
+                            "NearPosition": {
+                                "Position": {
+                                    "X": 153.8872,
+                                    "Y": -9.001622,
+                                    "Z": 77.50049
+                                },
+                                "TerritoryId": 154,
+                                "MaximumDistance": 50
+                            }
+                        }
+                    }
                 }
             ]
         }

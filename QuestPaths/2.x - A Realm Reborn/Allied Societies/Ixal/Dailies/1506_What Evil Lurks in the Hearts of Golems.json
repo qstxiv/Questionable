@@ -36,15 +36,38 @@
             "Sequence": 1,
             "Steps": [
                 {
-                    "DataId": 2004464,
+                    "TerritoryId": 154,
+                    "InteractionType": "SwitchClass",
+                    "TargetClass": "ConfiguredCombatJob"
+                },
+                {
                     "Position": {
-                        "X": 25.741943,
-                        "Y": -43.442444,
-                        "Z": 441.12292
+                        "X": -180.06154,
+                        "Y": -60.916454,
+                        "Z": 355.63138
                     },
                     "TerritoryId": 154,
-                    "InteractionType": "Interact",
-                    "AetheryteShortcut": "North Shroud - Fallgourd Float"
+                    "InteractionType": "Combat",
+                    "EnemySpawnType": "OverworldEnemies",
+                    "ComplexCombatData": [
+                        {
+                            "DataId": 30,
+                            "MinimumKillCount": 1,
+                            "CompletionQuestVariablesFlags": [
+                                null,
+                                null,
+                                16,
+                                null,
+                                null,
+                                null
+                            ]
+                        },
+                        {
+                            "DataId": 3240,
+                            "MinimumKillCount": 1
+                        }
+                    ],
+                    "Fly": true
                 }
             ]
         },
@@ -60,8 +83,7 @@
                     },
                     "TerritoryId": 154,
                     "InteractionType": "Interact",
-                    "Fly": true,
-                    "Land": true
+                    "AetheryteShortcut": "North Shroud - Fallgourd Float"
                 }
             ]
         },
@@ -71,8 +93,8 @@
                 {
                     "TerritoryId": 154,
                     "InteractionType": "Craft",
-                    "ItemId": 8096,
-                    "ItemCount": 2,
+                    "ItemId": 8097,
+                    "ItemCount": 1,
                     "SkipConditions": {
                         "StepIf": {
                             "Item": {

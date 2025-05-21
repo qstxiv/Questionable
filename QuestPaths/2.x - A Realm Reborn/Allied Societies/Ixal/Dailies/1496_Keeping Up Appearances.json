@@ -6,11 +6,11 @@
             "Sequence": 0,
             "Steps": [
                 {
-                    "DataId": 1009212,
+                    "DataId": 1009211,
                     "Position": {
-                        "X": 151.29321,
-                        "Y": -9.752633,
-                        "Z": 79.697754
+                        "X": 153.8872,
+                        "Y": -9.001622,
+                        "Z": 77.50049
                     },
                     "TerritoryId": 154,
                     "InteractionType": "AcceptQuest",
@@ -20,9 +20,9 @@
                         "AetheryteShortcutIf": {
                             "NearPosition": {
                                 "Position": {
-                                    "X": 151.29321,
-                                    "Y": -9.752633,
-                                    "Z": 79.697754
+                                    "X": 153.8872,
+                                    "Y": -9.001622,
+                                    "Z": 77.50049
                                 },
                                 "TerritoryId": 154,
                                 "MaximumDistance": 50
@@ -36,15 +36,41 @@
             "Sequence": 1,
             "Steps": [
                 {
-                    "DataId": 2004464,
+                    "TerritoryId": 154,
+                    "InteractionType": "SwitchClass",
+                    "TargetClass": "ConfiguredCombatJob"
+                },
+                {
                     "Position": {
-                        "X": 25.741943,
-                        "Y": -43.442444,
-                        "Z": 441.12292
+                        "X": 218.67094,
+                        "Y": -27.914522,
+                        "Z": 211.52048
                     },
                     "TerritoryId": 154,
-                    "InteractionType": "Interact",
-                    "AetheryteShortcut": "North Shroud - Fallgourd Float"
+                    "InteractionType": "Combat",
+                    "EnemySpawnType": "AutoOnEnterArea",
+                    "KillEnemyDataIds": [
+                        749
+                    ],
+                    "Fly": true,
+                    "CompletionQuestVariablesFlags": [
+                        1,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null
+                    ]
+                },
+                {
+                    "DataId": 2004457,
+                    "Position": {
+                        "X": 217.15112,
+                        "Y": -27.420471,
+                        "Z": 209.88782
+                    },
+                    "TerritoryId": 154,
+                    "InteractionType": "Interact"
                 }
             ]
         },
@@ -52,16 +78,15 @@
             "Sequence": 2,
             "Steps": [
                 {
-                    "DataId": 1009218,
+                    "DataId": 1009217,
                     "Position": {
-                        "X": -4.1047363,
-                        "Y": -40.949986,
-                        "Z": 176.83679
+                        "X": 363.72925,
+                        "Y": -5.616498,
+                        "Z": 347.219
                     },
                     "TerritoryId": 154,
                     "InteractionType": "Interact",
-                    "Fly": true,
-                    "Land": true
+                    "Fly": true
                 }
             ]
         },
@@ -71,7 +96,7 @@
                 {
                     "TerritoryId": 154,
                     "InteractionType": "Craft",
-                    "ItemId": 8096,
+                    "ItemId": 8093,
                     "ItemCount": 2,
                     "SkipConditions": {
                         "StepIf": {
@@ -82,11 +107,11 @@
                     }
                 },
                 {
-                    "DataId": 1009212,
+                    "DataId": 1009211,
                     "Position": {
-                        "X": 151.29321,
-                        "Y": -9.752633,
-                        "Z": 79.697754
+                        "X": 153.8872,
+                        "Y": -9.001622,
+                        "Z": 77.50049
                     },
                     "TerritoryId": 154,
                     "InteractionType": "CompleteQuest",
