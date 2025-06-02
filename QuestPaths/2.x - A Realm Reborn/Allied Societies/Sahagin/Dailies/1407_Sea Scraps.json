@@ -6,11 +6,11 @@
             "Sequence": 0,
             "Steps": [
                 {
-                    "DataId": 1005939,
+                    "DataId": 1005940,
                     "Position": {
-                        "X": -247.73022,
-                        "Y": -42.09973,
-                        "Z": 52.017944
+                        "X": -226.12347,
+                        "Y": -40.48583,
+                        "Z": 57.083984
                     },
                     "TerritoryId": 138,
                     "InteractionType": "AcceptQuest",
@@ -20,9 +20,9 @@
                         "AetheryteShortcutIf": {
                             "NearPosition": {
                                 "Position": {
-                                    "X": -247.73022,
-                                    "Y": -42.09973,
-                                    "Z": 52.017944
+                                    "X": -226.12347,
+                                    "Y": -40.48583,
+                                    "Z": 57.083984
                                 },
                                 "TerritoryId": 138,
                                 "MaximumDistance": 50
@@ -47,7 +47,7 @@
                     "DialogueChoices": [
                         {
                             "Type": "YesNo",
-                            "Prompt": "TEXT_BANSAH210_01399_Q1_000_000",
+                            "Prompt": "TEXT_BANSAH308_01407_Q1_000_000",
                             "Yes": true
                         }
                     ],
@@ -55,9 +55,9 @@
                         "StepIf": {
                             "NearPosition": {
                                 "Position": {
-                                    "X": -886.05554,
-                                    "Y": -29.20463,
-                                    "Z": 929.7735
+                                    "X": -830.1075,
+                                    "Y": -28.771336,
+                                    "Z": 970.3592
                                 },
                                 "TerritoryId": 138,
                                 "MaximumDistance": 50
@@ -66,17 +66,68 @@
                     }
                 },
                 {
+                    "DataId": 1008914,
                     "Position": {
-                        "X": -864.4419,
+                        "X": -846.8605,
                         "Y": -25.652748,
-                        "Z": 928.53
+                        "Z": 962.0354
                     },
                     "TerritoryId": 138,
-                    "InteractionType": "Combat",
-                    "EnemySpawnType": "OverworldEnemies",
-                    "KillEnemyDataIds": [
-                        767
+                    "InteractionType": "Interact",
+                    "CompletionQuestVariablesFlags": [
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        32
                     ]
+                },
+                {
+                    "DataId": 1008915,
+                    "Position": {
+                        "X": -862.8214,
+                        "Y": -20.652752,
+                        "Z": 966.308
+                    },
+                    "TerritoryId": 138,
+                    "InteractionType": "Interact",
+                    "CompletionQuestVariablesFlags": [
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        16
+                    ]
+                },
+                {
+                    "DataId": 1008912,
+                    "Position": {
+                        "X": -821.40845,
+                        "Y": -25.647757,
+                        "Z": 974.853
+                    },
+                    "TerritoryId": 138,
+                    "InteractionType": "Interact",
+                    "CompletionQuestVariablesFlags": [
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        128
+                    ]
+                },
+                {
+                    "DataId": 1008913,
+                    "Position": {
+                        "X": -795.4986,
+                        "Y": -23.649637,
+                        "Z": 972.3506
+                    },
+                    "TerritoryId": 138,
+                    "InteractionType": "Interact"
                 }
             ]
         },
@@ -84,11 +135,11 @@
             "Sequence": 255,
             "Steps": [
                 {
-                    "DataId": 2004013,
+                    "DataId": 2004014,
                     "Position": {
-                        "X": -883.36005,
-                        "Y": -29.251587,
-                        "Z": 929.2285
+                        "X": -826.84064,
+                        "Y": -29.34314,
+                        "Z": 971.4656
                     },
                     "TerritoryId": 138,
                     "TargetTerritoryId": 138,
@@ -97,9 +148,9 @@
                         "StepIf": {
                             "NotNearPosition": {
                                 "Position": {
-                                    "X": -883.36005,
-                                    "Y": -29.251587,
-                                    "Z": 929.2285
+                                    "X": -826.84064,
+                                    "Y": -29.34314,
+                                    "Z": 971.4656
                                 },
                                 "TerritoryId": 138,
                                 "MaximumDistance": 50
@@ -108,11 +159,11 @@
                     }
                 },
                 {
-                    "DataId": 1005939,
+                    "DataId": 1005940,
                     "Position": {
-                        "X": -247.73022,
-                        "Y": -42.09973,
-                        "Z": 52.017944
+                        "X": -226.12347,
+                        "Y": -40.48583,
+                        "Z": 57.083984
                     },
                     "TerritoryId": 138,
                     "InteractionType": "CompleteQuest"
