@@ -1,129 +1,122 @@
-# Questionable
+<section id="top">
+    <p style="text-align:center;" align="center">
+        <img align="center" src="https://github.com/qstxiv/icons/raw/main/Questionable.png" width="250" />
+    </p>
+    <h1 style="text-align:center;" align="center">Questionable</h1>
+    <p style="text-align:center;" align="center">
+        Automated quest helper designed to do your quests for you.
+    </p>
+</section>
 
-**A tiny quest helper plugin for Final Fantasy XIV.**
+<!-- Badges -->
+<p align="center"> 
+<!-- Build & commit activity -->
+  <a href="https://github.com/qstxiv/Questionable/commits/main" alt="Commits">
+    <img src="https://img.shields.io/github/last-commit/qstxiv/Questionable/main?color=00D162&style=for-the-badge" /></a>
+   <a href="https://github.com/qstxiv/Questionable/commits/main" alt="Commit Activity">
+    <img src="https://img.shields.io/github/commit-activity/m/qstxiv/Questionable?color=00D162&style=for-the-badge" /></a>
+  <br> 
+<!-- Other -->
+  <a href="https://github.com/qstxiv/Questionable/issues" alt="Open Issues">
+    <img src="https://img.shields.io/github/issues-raw/qstxiv/Questionable?color=EA9C0A&style=for-the-badge" /></a>
+  <a href="https://github.com/qstxiv/Questionable/graphs/contributors" alt="Contributors">
+    <img src="https://img.shields.io/github/contributors/qstxiv/Questionable?color=009009&style=for-the-badge" /></a>
+<br>
+<!-- Version -->
+  <a href="https://github.com/qstxiv/Questionable/tags" alt="Release">
+    <img src="https://img.shields.io/github/v/tag/qstxiv/Questionable?label=Release&logo=git&logoColor=ffffff&style=for-the-badge" /></a>
+<br>
+  <!-- Discord -->
+  <a href="https://discord.gg/Zzrcc8kmvy" alt="Discord">
+    <img src="https://discordapp.com/api/guilds/1001823907193552978/embed.png?style=banner2" /></a>
+</div>
+</p>
 
-*Automate your questing experience with intelligent pathfinding and seamless quest completion*
+<br><br>
 
-[![GitHub Release](https://img.shields.io/github/v/release/WigglyMuffin/Questionable?style=for-the-badge&logo=github&color=brightgreen)](https://github.com/WigglyMuffin/Questionable/releases)
-[![Discord](https://img.shields.io/badge/Discord-Join%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/pngyvpYVt2)
+<section id="about">
 
----
+# About
 
-## Features
+<p> Questionable is a third-party plugin for <a href="https://goatcorp.github.io/" alt="XIVLauncher">XIVLauncher</a>.<br><br>
+    It automates quest completion by navigating to objectives while also handling dialogue, interaction, and task fulfillment for eligible quests, streamlining all quest progression processes. <br><br>
+    This plugin was originated by <a href="https://github.com/carvelli" alt="Liza">Liza</a> and is maintained by <a href="https://github.com/WigglyMuffin" alt="WigglyMuffin">WigglyMuffin</a>, <a href="https://github.com/Akechi-kun" alt="Akechi">Akechi</a>, <a href="https://github.com/nightmarexiv" alt="Limiana">Limiana</a>, and <a href="https://github.com/alyssadev" alt="alydev">alydev</a>.
+</p>
 
-- **Automatic Quest Completion**: Handles quest navigation, dialogue, and turn-ins automatically
-- **Navmesh Integration**: Uses advanced pathfinding to navigate between quest objectives
-- **MSQ Support**: Main Scenario Quest automation with priority handling
-- **Allied Society Quests**: Automated daily quest completion for all tribes
-- **Class/Job Quests**: Automatic completion of class and job-specific quests
-- **Aetheryte Shortcuts**: Smart teleportation to optimize travel time
-- **Quest Validation**: Built-in validation system to ensure quest data integrity
-- **Manual Override**: Full manual control when needed with step-by-step execution
+<!-- Required Companion Plugins -->
+</section><br>
 
-## Installation
+## Required Companion Plugins
 
-Add the following URL to your Dalamud plugin repositories: 
+This plugin relies on other tools to function optimally. <br><br>
+Each of the following plugins is required for specific reasons:
 
-`https://github.com/WigglyMuffin/DalamudPlugins/raw/main/pluginmaster.json`
+- ### [vnavmesh](https://github.com/awgil/ffxiv_navmesh)  
+Handles in-zone navigation. It enables your character to move seamlessly from one quest objective to the next.
 
-**Installation Steps:**
-1. Open XIVLauncher/Dalamud
-2. Go to Settings → Experimental
-3. Add the repository URL above
-4. Go to Plugin Installer
-5. Search for "Questionable" and install
+- ### [LifeStream](https://github.com/NightmareXIV/Lifestream)  
+Proper fast-travel functionality within cities using Aetherytes and Aethernet Shards.
 
-## Required Dependencies
+- ### [TextAdvance](https://github.com/NightmareXIV/TextAdvance)  
+Automated quest interactions, including accepting and turning in quests as well as skipping cutscenes and dialogue.
 
-Questionable requires the following plugins to function properly:
+</section><br>
 
-### Core Dependencies
-- **[vnavmesh](https://github.com/awgil/ffxiv_navmesh/)** - Handles navigation within zones
-- **[Lifestream](https://github.com/NightmareXIV/Lifestream)** - Used for aethernet travel in cities
-- **[TextAdvance](https://github.com/NightmareXIV/TextAdvance)** - Automatically accepts quests, skips cutscenes and dialogue
+<!-- Installation -->
+<section><br>
 
-### Combat Plugins (Choose One)
-- **[Boss Mod (VBM)](https://github.com/awgil/ffxiv_bossmod)**
-- **[Wrath Combo](https://github.com/PunishXIV/WrathCombo)**
-- **[Rotation Solver Reborn](https://github.com/FFXIV-CombatReborn/RotationSolverReborn)**
+# Installation
 
-### Recommended Plugins
-- **[CBT (Automaton)](https://github.com/Jaksuhn/Automaton)** - 'Sniper no sniping' feature
-- **[Pandora's Box](https://github.com/PunishXIV/PandorasBox)** - 'Auto Active Time Maneuver' feature
-- **[NotificationMaster](https://github.com/NightmareXIV/NotificationMaster)** - Out-of-game notifications
+Open the Dalamud Settings menu in game and follow the steps below.
+This can be done through the button at the bottom of the plugin installer or by
+typing `/xlsettings` in the chat.
 
-## Usage
+1. Under Custom Plugin Repositories, enter `https://love.puni.sh/ment.json` into the
+   empty box at the bottom.
+2. Click the "+" button.
+3. Click the "Save and Close" button.
 
-### Basic Commands
-- `/questionable` or `/qst` - Open the main plugin window
-- `/qst start` - Starts doing quests
-- `/qst stop` - Stops doing quests
-- `/qst reload` - Reload all quest data
-- `/qst which` - Shows all quests starting with your selected target
-- `/qst zone` - Shows all quests starting in the current zone (only includes quests with a known quest path, and currently visible unaccepted quests)
+Open the Dalamud Plugin Installer menu in game and follow the steps below.
+This can be done through `/xlplugins` in the chat.
 
-### Getting Started
-1. Accept a quest manually or let the plugin handle MSQ progression
-2. Open the Questionable window (`/qst`)
-3. Click the **Play** button to start automation
-4. The plugin will handle navigation, dialogue, and quest completion
+1. Click the "All Plugins" tab on the left.
+2. Search for "Questionable".
+3. Click the "Install" button.
+</section><br>
 
-### Quest Types Supported
-- **Main Scenario Quests (MSQ)** - Full automation support
-- **Side Quests** - Most side quests are supported
-- **Class/Job Quests** - Automated with priority handling
-- **Allied Society Quests** - Daily quest automation
-- **Delivery Quests** - Custom delivery and supply missions
+<!-- Commands -->
+<section>
 
-### Limitations
-- **Dungeons**: Certain dungeons must be completed manually or with other automation tools
-- **Single Player Duties**: Certain single player duties require manual completion
-- **Combat**: Requires a combat plugin or manual intervention
-- **Some Complex Mechanics**: May require manual intervention
+# Commands
 
-## Configuration
+| **Chat command**                       | **Function**                                                                                                                                                                   |
+|:---------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `/qst  `                               | Opens the Questing window.                                                                                                                                                     |
+| `/qst config`                          | Opens the Configuration window.                                                                                                                                                |
+| `/qst start`                           | Starts doing quests.                                                                                                                                                           |
+| `/qst stop`                            | Stops doing quests.                                                                                                                                                            |
+| `/qst reload`                          | Reloads all quests data.                                                                                                                                                       |
+| `/qst which`                           | Shows all quests starting with your selected target.                                                                                                                           |
+| `/qst zone`                            | Shows all quests starting with your current zone.<br> (<b>NOTE</b>: This only includes quests with a valid quest path and are currently visible & unaccepted.)                 |
 
-Access configuration through the main plugin window or `/questionable config`:
+</section><br>
 
-- **Combat Module**: Choose your preferred combat automation plugin
-- **Stop Conditions**: Set level or quest-based stopping points  
-- **Advanced Settings**: Debug options and additional status information
-- **Quest Priority**: Manage quest execution order
+<!-- Contributing -->
+<section>
 
-## Support & Community
+# Contributing
 
-- **Discord**: Join our community for support, updates, and discussions: [https://discord.gg/pngyvpYVt2](https://discord.gg/pngyvpYVt2)
-- **Bug Reports**: Use [GitHub Issues](https://github.com/WigglyMuffin/Questionable/issues) for bug reports
-- **Feature Requests**: Submit suggestions via GitHub Issues
+Contributions to the project are always welcome and much appreciated!<br><br>
 
-## Quest Coverage
+Please feel free to submit a [pull request](https://github.com/qstxiv/Questionable/pulls) here on GitHub,
+or you can get in contact with us over on the [Discord](https://discord.gg/Zzrcc8kmvy) server inside the `#ffxiv-Questionable` channel.
 
-**Supported Expansions:**
-- ✅ A Realm Reborn (ARR)
-- ✅ Heavensward (HW) 
-- ✅ Stormblood (SB)
-- ✅ Shadowbringers (ShB)
-- ✅ Endwalker (EW)
-- ✅ Dawntrail (DT)
-
-**Quest Types:**
-- ✅ Main Scenario Quests
-- ✅ Class/Job Quests
-- ✅ Allied Society Quests  
-- ✅ Aether Current Quests
-- ✅ Side Quests (Most)
-- ⚠️ Custom Delivery (Partial)
-
-## Disclaimer
-
-**Use at your own risk.** While this plugin automates quest completion and is designed to simulate normal player behaviour, never leave it unattended as automation always carries inherent risks.
-
-## License
-
-This project is licensed under the GNU Affero General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
-
-## Credits
-
-- **Original Author**: Liza Carvelli
-- **Current Maintainer**: WigglyMuffin  
-- **Contributors**: All the amazing people who contribute quest paths and improvements
+<!-- Punish Logo & Discord -->
+<div align="center">
+  <a href="https://puni.sh/" alt="Puni.sh">
+    <img src="https://github.com/qstxiv/AutoHook/assets/13919114/a8a977d6-457b-4e43-8256-ca298abd9009" /></a>
+<br>
+  <a href="https://discord.gg/Zzrcc8kmvy" alt="Discord">
+    <img src="https://discordapp.com/api/guilds/1001823907193552978/embed.png?style=banner2" /></a>
+</div>
+<br>
