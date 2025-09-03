@@ -41,6 +41,8 @@ internal sealed class Configuration : IPluginConfiguration
         public bool ShowIncompleteSeasonalEvents { get; set; } = true;
         public bool SkipLowPriorityDuties { get; set; }
         public bool ConfigureTextAdvance { get; set; } = true;
+        public bool AutoStepRefreshEnabled { get; set; } = true;
+        public int AutoStepRefreshDelaySeconds { get; set; } = 10;
     }
 
     internal sealed class StopConfiguration
@@ -49,6 +51,9 @@ internal sealed class Configuration : IPluginConfiguration
 
         [JsonProperty(ItemConverterType = typeof(ElementIdNConverter))]
         public List<ElementId> QuestsToStopAfter { get; set; } = [];
+        
+        public bool LevelToStopAfter { get; set; }
+        public int TargetLevel { get; set; } = 50;
     }
 
     internal sealed class DutyConfiguration
@@ -56,6 +61,7 @@ internal sealed class Configuration : IPluginConfiguration
         public bool RunInstancedContentWithAutoDuty { get; set; }
         public HashSet<uint> WhitelistedDutyCfcIds { get; set; } = [];
         public HashSet<uint> BlacklistedDutyCfcIds { get; set; } = [];
+        public Dictionary<string, bool> ExpansionHeaderStates { get; set; } = [];
     }
 
     internal sealed class SinglePlayerDutyConfiguration
@@ -67,6 +73,7 @@ internal sealed class Configuration : IPluginConfiguration
 
         public HashSet<uint> WhitelistedSinglePlayerDutyCfcIds { get; set; } = [];
         public HashSet<uint> BlacklistedSinglePlayerDutyCfcIds { get; set; } = [];
+        public Dictionary<string, bool> HeaderStates { get; set; } = [];
     }
 
     internal sealed class NotificationConfiguration
@@ -88,6 +95,7 @@ internal sealed class Configuration : IPluginConfiguration
         public bool SkipClassJobQuests { get; set; }
         public bool SkipARealmRebornHardModePrimals { get; set; }
         public bool SkipCrystalTowerRaids { get; set; }
+        public bool PreventQuestCompletion { get; set; }
     }
 
     internal enum ECombatModule

@@ -34,6 +34,7 @@ internal sealed partial class ActiveQuestComponent
     private readonly QuestRegistry _questRegistry;
     private readonly PriorityWindow _priorityWindow;
     private readonly UiUtils _uiUtils;
+    private readonly IClientState _clientState;
     private readonly IChatGui _chatGui;
     private readonly ILogger<ActiveQuestComponent> _logger;
 
@@ -48,6 +49,7 @@ internal sealed partial class ActiveQuestComponent
         QuestRegistry questRegistry,
         PriorityWindow priorityWindow,
         UiUtils uiUtils,
+        IClientState clientState,
         IChatGui chatGui,
         ILogger<ActiveQuestComponent> logger)
     {
@@ -61,6 +63,7 @@ internal sealed partial class ActiveQuestComponent
         _questRegistry = questRegistry;
         _priorityWindow = priorityWindow;
         _uiUtils = uiUtils;
+        _clientState = clientState;
         _chatGui = chatGui;
         _logger = logger;
     }
@@ -187,24 +190,75 @@ internal sealed partial class ActiveQuestComponent
                     ImGui.TextColored(ImGuiColors.DalamudRed, "Disabled");
                 }
 
-                if (_configuration.Stop.Enabled &&
-                    _configuration.Stop.QuestsToStopAfter.Any(x => !_questFunctions.IsQuestComplete(x) && !_questFunctions.IsQuestUnobtainable(x)))
+                bool hasLevelCondition = _configuration.Stop.Enabled && _configuration.Stop.LevelToStopAfter;
+                bool hasQuestConditions = _configuration.Stop.Enabled &&
+                    _configuration.Stop.QuestsToStopAfter.Any(x => !_questFunctions.IsQuestComplete(x) && !_questFunctions.IsQuestUnobtainable(x));
+
+                if (hasLevelCondition || hasQuestConditions)
                 {
                     ImGui.SameLine();
-                    ImGui.TextColored(ImGuiColors.ParsedPurple, SeIconChar.Clock.ToIconString());
+
+                    // Tooltip color based on status
+                    Vector4 iconColor = ImGuiColors.ParsedPurple;
+
+                    if (hasLevelCondition)
+                    {
+                        int currentLevel = _clientState.LocalPlayer?.Level ?? 0;
+                        if (currentLevel > 0 && currentLevel >= _configuration.Stop.TargetLevel)
+                        {
+                            iconColor = ImGuiColors.ParsedGreen;
+                        }
+                        else if (currentLevel > 0)
+                        {
+                            iconColor = ImGuiColors.ParsedBlue;
+                        }
+                    }
+
+                    ImGui.TextColored(iconColor, SeIconChar.Clock.ToIconString());
                     if (ImGui.IsItemHovered())
                     {
                         using var tooltip = ImRaii.Tooltip();
                         if (tooltip)
                         {
-                            ImGui.Text("Questionable will stop after completing any of the following quests:");
-                            foreach (var questId in _configuration.Stop.QuestsToStopAfter)
+                            ImGui.Text("Stop Conditions:");
+                            ImGui.Separator();
+
+                            // Level stop condition
+                            if (hasLevelCondition)
                             {
-                                if (_questRegistry.TryGetQuest(questId, out var quest))
+                                int currentLevel = _clientState.LocalPlayer?.Level ?? 0;
+                                ImGui.BulletText($"Stop at level {_configuration.Stop.TargetLevel}");
+                                if (currentLevel > 0)
                                 {
-                                    (Vector4 color, FontAwesomeIcon icon, _) = _uiUtils.GetQuestStyle(questId);
-                                    _uiUtils.ChecklistItem($"{quest.Info.Name} ({questId})", color, icon);
+                                    ImGui.SameLine();
+                                    if (currentLevel >= _configuration.Stop.TargetLevel)
+                                    {
+                                        ImGui.TextColored(ImGuiColors.ParsedGreen, $"(Current: {currentLevel} - Reached!)");
+                                    }
+                                    else
+                                    {
+                                        ImGui.TextColored(ImGuiColors.ParsedBlue, $"(Current: {currentLevel})");
+                                    }
                                 }
+                            }
+
+                            // Quest stop conditions
+                            if (hasQuestConditions)
+                            {
+                                if (hasLevelCondition)
+                                    ImGui.Spacing();
+
+                                ImGui.BulletText("Stop after completing any of these quests:");
+                                ImGui.Indent();
+                                foreach (var questId in _configuration.Stop.QuestsToStopAfter)
+                                {
+                                    if (_questRegistry.TryGetQuest(questId, out var quest))
+                                    {
+                                        (Vector4 color, FontAwesomeIcon icon, _) = _uiUtils.GetQuestStyle(questId);
+                                        _uiUtils.ChecklistItem($"{quest.Info.Name} ({questId})", color, icon);
+                                    }
+                                }
+                                ImGui.Unindent();
                             }
                         }
                     }

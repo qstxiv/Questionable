@@ -99,6 +99,8 @@ internal sealed class DutyConfigComponent : ConfigComponent
 
             DrawConfigTable(runInstancedContentWithAutoDuty);
 
+            DrawEnableAllButton();
+            ImGui.SameLine();
             DrawClipboardButtons();
             ImGui.SameLine();
             DrawResetButton();
@@ -113,8 +115,26 @@ internal sealed class DutyConfigComponent : ConfigComponent
 
         foreach (EExpansionVersion expansion in Enum.GetValues<EExpansionVersion>())
         {
-            if (ImGui.CollapsingHeader(expansion.ToFriendlyString()))
+            var (enabledCount, totalCount) = GetDutyCountsForExpansion(expansion);
+
+            string headerText = totalCount > 0
+                ? $"{expansion.ToFriendlyString()} ({enabledCount}/{totalCount})"
+                : expansion.ToFriendlyString();
+
+            string expansionKey = expansion.ToString();
+
+            bool isHeaderOpen = Configuration.Duties.ExpansionHeaderStates.GetValueOrDefault(expansionKey, false);
+
+            ImGui.SetNextItemOpen(isHeaderOpen, ImGuiCond.Always);
+
+            if (ImGui.CollapsingHeader(headerText))
             {
+                if (!Configuration.Duties.ExpansionHeaderStates.GetValueOrDefault(expansionKey, false))
+                {
+                    Configuration.Duties.ExpansionHeaderStates[expansionKey] = true;
+                    Save();
+                }
+
                 using var table = ImRaii.Table($"Duties{expansion}", 2, ImGuiTableFlags.SizingFixedFit);
                 if (table)
                 {
@@ -184,7 +204,66 @@ internal sealed class DutyConfigComponent : ConfigComponent
                     }
                 }
             }
+            else
+            {
+                if (Configuration.Duties.ExpansionHeaderStates.GetValueOrDefault(expansionKey, false))
+                {
+                    Configuration.Duties.ExpansionHeaderStates[expansionKey] = false;
+                    Save();
+                }
+            }
         }
+    }
+    private (int enabledCount, int totalCount) GetDutyCountsForExpansion(EExpansionVersion expansion)
+    {
+        if (!_contentFinderConditionNames.TryGetValue(expansion, out var cfcNames))
+            return (0, 0);
+
+        int enabledCount = 0;
+        int totalCount = 0;
+
+        foreach (var (cfcId, _, _) in cfcNames)
+        {
+            if (_questRegistry.TryGetDutyByContentFinderConditionId(cfcId, out DutyOptions? dutyOptions))
+            {
+                totalCount++;
+
+                // a duty is considered "enabled" if:
+                // it's whitelisted, OR
+                // it's not blacklisted AND it's enabled by default
+                bool isEnabled = Configuration.Duties.WhitelistedDutyCfcIds.Contains(cfcId) ||
+                               (!Configuration.Duties.BlacklistedDutyCfcIds.Contains(cfcId) && dutyOptions.Enabled);
+
+                if (isEnabled)
+                    enabledCount++;
+            }
+        }
+
+        return (enabledCount, totalCount);
+    }
+
+    private void DrawEnableAllButton()
+    {
+        if (ImGuiComponents.IconButtonWithText(FontAwesomeIcon.CheckCircle, "Enable All"))
+        {
+            Configuration.Duties.BlacklistedDutyCfcIds.Clear();
+            Configuration.Duties.WhitelistedDutyCfcIds.Clear();
+
+            foreach (var cfcNames in _contentFinderConditionNames.Values)
+            {
+                foreach (var (cfcId, _, _) in cfcNames)
+                {
+                    if (_questRegistry.TryGetDutyByContentFinderConditionId(cfcId, out DutyOptions? dutyOptions))
+                    {
+                        Configuration.Duties.WhitelistedDutyCfcIds.Add(cfcId);
+                    }
+                }
+            }
+            Save();
+        }
+
+        if (ImGui.IsItemHovered())
+            ImGui.SetTooltip("Enable all of the duties, use at your own risk.");
     }
 
     private void DrawClipboardButtons()
@@ -227,7 +306,7 @@ internal sealed class DutyConfigComponent : ConfigComponent
                     if (part.StartsWith(DutyBlacklistPrefix, StringComparison.InvariantCulture) &&
                         uint.TryParse(part.AsSpan(DutyBlacklistPrefix.Length), CultureInfo.InvariantCulture,
                             out uint blacklistedCfcId))
-                        Configuration.Duties.WhitelistedDutyCfcIds.Add(blacklistedCfcId);
+                        Configuration.Duties.BlacklistedDutyCfcIds.Add(blacklistedCfcId);
                 }
             }
         }
@@ -237,7 +316,7 @@ internal sealed class DutyConfigComponent : ConfigComponent
     {
         using (ImRaii.Disabled(!ImGui.IsKeyDown(ImGuiKey.ModCtrl)))
         {
-            if (ImGui.Button("Reset to default"))
+            if (ImGuiComponents.IconButtonWithText(FontAwesomeIcon.Undo, "Reset to default"))
             {
                 Configuration.Duties.WhitelistedDutyCfcIds.Clear();
                 Configuration.Duties.BlacklistedDutyCfcIds.Clear();
