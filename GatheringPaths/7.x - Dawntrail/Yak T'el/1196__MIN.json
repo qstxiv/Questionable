@@ -1,5 +1,5 @@
 {
-  "$schema": "https://git.carvel.li/liza/Questionable/raw/branch/master/GatheringPaths/gatheringlocation-v1.json",
+  "$schema": "https://qstxiv.github.io/schema/gatheringlocation-v1.json",
   "Author": "liza",
   "Steps": [
     {

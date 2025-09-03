@@ -31,36 +31,36 @@ public static class Utils
 
         SchemaRegistry.Global.Register(
             new Uri(
-                "https://git.carvel.li/liza/Questionable/raw/branch/master/Questionable.Model/common-aethernetshard.json"),
+                "https://qstxiv.github.io/schema/common-aethernetshard.json"),
             JsonSchema.FromText(commonAethernetShardFile.GetText()!.ToString()));
         SchemaRegistry.Global.Register(
             new Uri(
-                "https://git.carvel.li/liza/Questionable/raw/branch/master/Questionable.Model/common-aetheryte.json"),
+                "https://qstxiv.github.io/schema/common-aetheryte.json"),
             JsonSchema.FromText(commonAetheryteFile.GetText()!.ToString()));
         SchemaRegistry.Global.Register(
             new Uri(
-                "https://git.carvel.li/liza/Questionable/raw/branch/master/Questionable.Model/common-classjob.json"),
+                "https://qstxiv.github.io/schema/common-classjob.json"),
             JsonSchema.FromText(commonClassJobFile.GetText()!.ToString()));
         SchemaRegistry.Global.Register(
             new Uri(
-                "https://git.carvel.li/liza/Questionable/raw/branch/master/Questionable.Model/common-completionflags.json"),
+                "https://qstxiv.github.io/schema/common-completionflags.json"),
             JsonSchema.FromText(commonCompletionFlagsFile.GetText()!.ToString()));
         SchemaRegistry.Global.Register(
-            new Uri("https://git.carvel.li/liza/Questionable/raw/branch/master/Questionable.Model/common-vector3.json"),
+            new Uri("https://qstxiv.github.io/schema/common-vector3.json"),
             JsonSchema.FromText(commonVector3File.GetText()!.ToString()));
 
         if (gatheringSchemaFile != null)
         {
             SchemaRegistry.Global.Register(
                 new Uri(
-                    "https://git.carvel.li/liza/Questionable/raw/branch/master/GatheringPaths/gatheringlocation-v1.json"),
+                    "https://qstxiv.github.io/schema/gatheringlocation-v1.json"),
                 JsonSchema.FromText(gatheringSchemaFile.GetText()!.ToString()));
         }
 
         if (questSchemaFile != null)
         {
             SchemaRegistry.Global.Register(
-                new Uri("https://git.carvel.li/liza/Questionable/raw/branch/master/QuestPaths/quest-v1.json"),
+                new Uri("https://qstxiv.github.io/schema/quest-v1.json"),
                 JsonSchema.FromText(questSchemaFile.GetText()!.ToString()));
         }
 
