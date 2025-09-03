@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Dalamud.Bindings.ImGui;
@@ -5,6 +6,7 @@ using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility.Raii;
 using Dalamud.Plugin;
+using Dalamud.Plugin.Services;
 using Questionable.Controller;
 using Questionable.Functions;
 using Questionable.Model;
@@ -21,6 +23,7 @@ internal sealed class StopConditionComponent : ConfigComponent
     private readonly QuestRegistry _questRegistry;
     private readonly QuestTooltipComponent _questTooltipComponent;
     private readonly UiUtils _uiUtils;
+    private readonly IClientState _clientState;
 
     public StopConditionComponent(
         IDalamudPluginInterface pluginInterface,
@@ -29,6 +32,7 @@ internal sealed class StopConditionComponent : ConfigComponent
         QuestRegistry questRegistry,
         QuestTooltipComponent questTooltipComponent,
         UiUtils uiUtils,
+        IClientState clientState,
         Configuration configuration)
         : base(pluginInterface, configuration)
     {
@@ -37,6 +41,7 @@ internal sealed class StopConditionComponent : ConfigComponent
         _questRegistry = questRegistry;
         _questTooltipComponent = questTooltipComponent;
         _uiUtils = uiUtils;
+        _clientState = clientState;
 
         _questSelector.SuggestionPredicate = quest => configuration.Stop.QuestsToStopAfter.All(x => x != quest.Id);
         _questSelector.DefaultPredicate = quest => quest.Info.IsMainScenarioQuest && questFunctions.IsQuestAccepted(quest.Id);
@@ -54,7 +59,7 @@ internal sealed class StopConditionComponent : ConfigComponent
             return;
 
         bool enabled = Configuration.Stop.Enabled;
-        if (ImGui.Checkbox("Stop Questionable when completing any of the quests selected below", ref enabled))
+        if (ImGui.Checkbox("Stop Questionable when any of the conditions below are met", ref enabled))
         {
             Configuration.Stop.Enabled = enabled;
             Save();
@@ -64,11 +69,62 @@ internal sealed class StopConditionComponent : ConfigComponent
 
         using (ImRaii.Disabled(!enabled))
         {
-            ImGui.Text("Quests to stop after:");
+            // Level stop condition section
+            ImGui.Text("Stop when character level reaches:");
+
+            bool levelToStopAfter = Configuration.Stop.LevelToStopAfter;
+            if (ImGui.Checkbox("Enable level stop condition", ref levelToStopAfter))
+            {
+                Configuration.Stop.LevelToStopAfter = levelToStopAfter;
+                Save();
+            }
+
+            using (ImRaii.Disabled(!levelToStopAfter))
+            {
+                int targetLevel = Configuration.Stop.TargetLevel;
+                ImGui.SetNextItemWidth(100);
+                if (ImGui.InputInt("Stop at level", ref targetLevel, 1, 5))
+                {
+                    Configuration.Stop.TargetLevel = Math.Max(1, Math.Min(100, targetLevel));
+                    Save();
+                }
+
+                // Show current level for reference
+                int currentLevel = _clientState.LocalPlayer?.Level ?? 0;
+                if (currentLevel > 0)
+                {
+                    ImGui.SameLine();
+                    ImGui.TextDisabled($"(Current: {currentLevel})");
+                }
+            }
+
+            ImGui.Separator();
+
+            // Quest completion stop condition section
+            ImGui.Text("Stop when completing any of the quests selected below:");
 
             _questSelector.DrawSelection();
 
             List<ElementId> questsToStopAfter = Configuration.Stop.QuestsToStopAfter;
+
+            // 'Clear All' button if there are quests to clear for fast removal
+            if (questsToStopAfter.Count > 0)
+            {
+                using (ImRaii.Disabled(!ImGui.IsKeyDown(ImGuiKey.ModCtrl)))
+                {
+                    if (ImGuiComponents.IconButtonWithText(FontAwesomeIcon.Trash, "Clear All"))
+                    {
+                        Configuration.Stop.QuestsToStopAfter.Clear();
+                        Save();
+                    }
+                }
+
+                if (ImGui.IsItemHovered(ImGuiHoveredFlags.AllowWhenDisabled))
+                    ImGui.SetTooltip("Hold CTRL to enable this button.");
+
+                ImGui.Separator();
+            }
+
             Quest? itemToRemove = null;
             for (int i = 0; i < questsToStopAfter.Count; i++)
             {

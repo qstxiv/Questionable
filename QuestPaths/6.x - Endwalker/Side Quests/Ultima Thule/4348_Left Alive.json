@@ -1,0 +1,141 @@
+{
+  "$schema": "https://github.com/WigglyMuffin/Questionable/raw/refs/heads/main/QuestPaths/quest-v1.json",
+  "Author": "alydev",
+  "QuestSequence": [
+    {
+      "Sequence": 0,
+      "Steps": [
+        {
+          "DataId": 1041058,
+          "Position": {
+            "X": -574.30383,
+            "Y": 77.29004,
+            "Z": 324.33044
+          },
+          "TerritoryId": 960,
+          "InteractionType": "AcceptQuest",
+          "Fly": true,
+          "StopDistance": 5,
+          "AetheryteShortcut": "Ultima Thule - Reah Tahra",
+          "SkipConditions": {
+            "AetheryteShortcutIf": {
+              "NearPosition": {
+                "Position": {
+                  "X": -574.30383,
+                  "Y": 77.29004,
+                  "Z": 324.33044
+                },
+                "TerritoryId": 960,
+                "MaximumDistance": 150
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Sequence": 1,
+      "Steps": [
+        {
+          "DataId": 1038012,
+          "Position": {
+            "X": -655.9396,
+            "Y": 70.96863,
+            "Z": 302.90674
+          },
+          "TerritoryId": 960,
+          "InteractionType": "Interact",
+          "Fly": true,
+          "DialogueChoices": [
+            {
+              "Type": "List",
+              "Prompt": "TEXT_AKTKZJ012_04348_Q2_000_200",
+              "Answer": "TEXT_AKTKZJ012_04348_A2_000_200"
+            }
+          ],
+          "CompletionQuestVariablesFlags": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            64
+          ]
+        },
+        {
+          "DataId": 1038013,
+          "Position": {
+            "X": -551.8425,
+            "Y": 72.58038,
+            "Z": 232.6543
+          },
+          "TerritoryId": 960,
+          "InteractionType": "Interact",
+          "Fly": true,
+          "DialogueChoices": [
+            {
+              "Type": "List",
+              "Prompt": "TEXT_AKTKZJ012_04348_Q1_000_100",
+              "Answer": "TEXT_AKTKZJ012_04348_A1_000_100"
+            }
+          ],
+          "CompletionQuestVariablesFlags": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            128
+          ]
+        }
+      ]
+    },
+    {
+      "Sequence": 2,
+      "Steps": [
+        {
+          "DataId": 2012685,
+          "Position": {
+            "X": -115.09888,
+            "Y": 55.527588,
+            "Z": 537.52954
+          },
+          "TerritoryId": 960,
+          "InteractionType": "Interact",
+          "Fly": true
+        }
+      ]
+    },
+    {
+      "Sequence": 255,
+      "Steps": [
+        {
+          "DataId": 1038008,
+          "Position": {
+            "X": -574.30383,
+            "Y": 77.29004,
+            "Z": 324.33044
+          },
+          "TerritoryId": 960,
+          "InteractionType": "CompleteQuest",
+          "Fly": true,
+          "StopDistance": 5,
+          "AetheryteShortcut": "Ultima Thule - Reah Tahra",
+          "SkipConditions": {
+            "AetheryteShortcutIf": {
+              "NearPosition": {
+                "Position": {
+                  "X": -574.30383,
+                  "Y": 77.29004,
+                  "Z": 324.33044
+                },
+                "TerritoryId": 960,
+                "MaximumDistance": 150
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

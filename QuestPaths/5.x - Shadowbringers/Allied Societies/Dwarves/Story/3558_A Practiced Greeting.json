@@ -1,0 +1,102 @@
+{
+  "$schema": "https://github.com/WigglyMuffin/Questionable/raw/refs/heads/main/QuestPaths/quest-v1.json",
+  "Author": "alydev",
+  "QuestSequence": [
+    {
+      "Sequence": 0,
+      "Steps": [
+        {
+          "DataId": 1030800,
+          "Position": {
+            "X": -396.68878,
+            "Y": 417.51825,
+            "Z": -657.9232
+          },
+          "TerritoryId": 814,
+          "InteractionType": "AcceptQuest",
+          "DialogueChoices": [
+            {
+              "Type": "List",
+              "Prompt": "TEXT_LUCKZI103_03558_Q1_000_000",
+              "Answer": "TEXT_LUCKZI103_03558_A1_000_001"
+            },
+            {
+              "Type": "List",
+              "Prompt": "TEXT_LUCKZI103_03558_Q2_000_000",
+              "Answer": "TEXT_LUCKZI103_03558_A2_000_001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Sequence": 1,
+      "Steps": [
+        {
+          "DataId": 1030782,
+          "Position": {
+            "X": -191.18036,
+            "Y": 362.9854,
+            "Z": -292.83594
+          },
+          "TerritoryId": 814,
+          "InteractionType": "Interact",
+          "Fly": true
+        }
+      ]
+    },
+    {
+      "Sequence": 2,
+      "Steps": [
+        {
+          "DataId": 1030784,
+          "Position": {
+            "X": -407.8584,
+            "Y": 362.59058,
+            "Z": -289.5705
+          },
+          "TerritoryId": 814,
+          "InteractionType": "Combat",
+          "Fly": true,
+          "EnemySpawnType": "AutoOnEnterArea",
+          "KillEnemyDataIds": [
+            11142
+          ]
+        }
+      ]
+    },
+    {
+      "Sequence": 3,
+      "Steps": [
+        {
+          "DataId": 1030784,
+          "Position": {
+            "X": -407.8584,
+            "Y": 362.59058,
+            "Z": -289.5705
+          },
+          "TerritoryId": 814,
+          "InteractionType": "Interact"
+        }
+      ]
+    },
+    {
+      "Sequence": 255,
+      "Steps": [
+        {
+          "DataId": 1030786,
+          "Position": {
+            "X": -519.646,
+            "Y": 392.919,
+            "Z": -482.71918
+          },
+          "TerritoryId": 814,
+          "InteractionType": "CompleteQuest",
+          "Emote": "rally",
+          "Fly": true,
+          "NextQuestId": 3559
+        }
+      ]
+    }
+  ]
+}

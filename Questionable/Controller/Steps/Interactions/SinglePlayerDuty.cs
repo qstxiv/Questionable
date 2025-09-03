@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
 using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.ClientState.Objects;
 using Dalamud.Game.ClientState.Objects.Types;
@@ -14,6 +11,10 @@ using Questionable.Data;
 using Questionable.External;
 using Questionable.Model;
 using Questionable.Model.Questing;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
 
 namespace Questionable.Controller.Steps.Interactions;
 
@@ -44,6 +45,7 @@ internal static class SinglePlayerDuty
                     throw new TaskException("Failed to get content finder condition for solo instance");
 
                 yield return new StartSinglePlayerDuty(cfcData.ContentFinderConditionId);
+                yield return new WaitAtStart.WaitDelay(TimeSpan.FromSeconds(2)); // maybe a delay will work here too, needs investigation
                 yield return new EnableAi(cfcData.TerritoryId == SpecialTerritories.Naadam);
                 if (cfcData.TerritoryId == SpecialTerritories.Lahabrea)
                 {
@@ -97,13 +99,27 @@ internal static class SinglePlayerDuty
         public override string ToString() => $"Wait(BossMod, entered instance {ContentFinderConditionId})";
     }
 
-    internal sealed class StartSinglePlayerDutyExecutor : TaskExecutor<StartSinglePlayerDuty>
+    internal sealed class StartSinglePlayerDutyExecutor(ICondition condition) : TaskExecutor<StartSinglePlayerDuty>
     {
+        private DateTime _enteredAt = DateTime.MinValue;
+
         protected override bool Start() => true;
 
         public override unsafe ETaskResult Update()
         {
-            return GameMain.Instance()->CurrentContentFinderConditionId == Task.ContentFinderConditionId
+            var gameMain = GameMain.Instance();
+            if (gameMain->CurrentContentFinderConditionId != Task.ContentFinderConditionId)
+                return ETaskResult.StillRunning;
+
+            if (!condition[ConditionFlag.BoundByDuty])
+                return ETaskResult.StillRunning;
+
+            // we add a minimum wait time to try avoid issues with starting too early
+            // could also be adding unnecessary wait time but needs more investigation ig
+            if (_enteredAt == DateTime.MinValue)
+                _enteredAt = DateTime.Now;
+
+            return DateTime.Now - _enteredAt >= TimeSpan.FromSeconds(2)
                 ? ETaskResult.TaskComplete
                 : ETaskResult.StillRunning;
         }

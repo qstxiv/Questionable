@@ -1,0 +1,123 @@
+{
+  "$schema": "https://github.com/WigglyMuffin/Questionable/raw/refs/heads/main/QuestPaths/quest-v1.json",
+  "Author": "alydev",
+  "QuestSequence": [
+    {
+      "Sequence": 0,
+      "Steps": [
+        {
+          "DataId": 1030766,
+          "Position": {
+            "X": -284.22986,
+            "Y": 35.373142,
+            "Z": 204.66919
+          },
+          "TerritoryId": 814,
+          "InteractionType": "AcceptQuest",
+          "AetheryteShortcut": "Kholusia - Wright",
+          "SkipConditions": {
+            "AetheryteShortcutIf": {
+              "NearPosition": {
+                "Position": {
+                  "X": -284.22986,
+                  "Y": 35.373142,
+                  "Z": 204.66919
+                },
+                "TerritoryId": 814,
+                "MaximumDistance": 50
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Sequence": 1,
+      "Steps": [
+        {
+          "DataId": 1030770,
+          "Position": {
+            "X": -547.87524,
+            "Y": 37.722652,
+            "Z": 532.4635
+          },
+          "TerritoryId": 814,
+          "InteractionType": "Interact",
+          "DialogueChoices": [
+            {
+              "Type": "List",
+              "Prompt": "TEXT_LUCKZA103_03373_Q1_000_000",
+              "Answer": "TEXT_LUCKZA103_03373_A1_000_001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Sequence": 2,
+      "Steps": [
+        {
+          "DataId": 2010304,
+          "Position": {
+            "X": -546.685,
+            "Y": 62.119385,
+            "Z": 681.9713
+          },
+          "TerritoryId": 814,
+          "InteractionType": "Interact"
+        },
+        {
+          "DataId": 2010305,
+          "Position": {
+            "X": -532.1889,
+            "Y": 62.790894,
+            "Z": 693.38513
+          },
+          "TerritoryId": 814,
+          "InteractionType": "Interact"
+        },
+        {
+          "DataId": 2010306,
+          "Position": {
+            "X": -524.07117,
+            "Y": 61.53955,
+            "Z": 674.464
+          },
+          "TerritoryId": 814,
+          "InteractionType": "Interact"
+        }
+      ]
+    },
+    {
+      "Sequence": 3,
+      "Steps": [
+        {
+          "DataId": 1030771,
+          "Position": {
+            "X": -532.4636,
+            "Y": 62.522995,
+            "Z": 684.0161
+          },
+          "TerritoryId": 814,
+          "InteractionType": "Interact"
+        }
+      ]
+    },
+    {
+      "Sequence": 255,
+      "Steps": [
+        {
+          "DataId": 1030766,
+          "Position": {
+            "X": -284.22986,
+            "Y": 35.373142,
+            "Z": 204.66919
+          },
+          "TerritoryId": 814,
+          "InteractionType": "CompleteQuest",
+          "NextQuestId": 3374
+        }
+      ]
+    }
+  ]
+}

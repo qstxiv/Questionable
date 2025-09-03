@@ -1,0 +1,92 @@
+{
+  "$schema": "https://github.com/WigglyMuffin/Questionable/raw/refs/heads/main/QuestPaths/quest-v1.json",
+  "Author": "alydev",
+  "QuestSequence": [
+    {
+      "Sequence": 0,
+      "Steps": [
+        {
+          "DataId": 1038008,
+          "Position": {
+            "X": -603.9369,
+            "Y": 78.6382,
+            "Z": 303.8529
+          },
+          "TerritoryId": 960,
+          "InteractionType": "AcceptQuest",
+          "StopDistance": 5,
+          "AetheryteShortcut": "Ultima Thule - Reah Tahra",
+          "SkipConditions": {
+            "AetheryteShortcutIf": {
+              "NearPosition": {
+                "Position": {
+                  "X": -603.9369,
+                  "Y": 78.6382,
+                  "Z": 303.8529
+                },
+                "TerritoryId": 960,
+                "MaximumDistance": 150
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "Sequence": 1,
+      "Steps": [
+        {
+          "Position": {
+            "X": -62.2731,
+            "Y": 60.627563,
+            "Z": 786.55927
+          },
+          "TerritoryId": 960,
+          "InteractionType": "Combat",
+          "EnemySpawnType": "AutoOnEnterArea",
+          "KillEnemyDataIds": [
+            14047,
+            14048
+          ]
+        }
+      ]
+    },
+    {
+      "Sequence": 255,
+      "Steps": [
+        {
+          "DataId": 1038008,
+          "Position": {
+            "X": -603.9369,
+            "Y": 78.6382,
+            "Z": 303.8529
+          },
+          "TerritoryId": 960,
+          "InteractionType": "CompleteQuest",
+          "DialogueChoices": [
+            {
+              "Type": "List",
+              "Prompt": "TEXT_AKTKZJ001_04337_Q1_000_014",
+              "Answer": "TEXT_AKTKZJ001_04337_A1_000_001"
+            }
+          ],
+          "StopDistance": 5,
+          "AetheryteShortcut": "Ultima Thule - Reah Tahra",
+          "SkipConditions": {
+            "AetheryteShortcutIf": {
+              "NearPosition": {
+                "Position": {
+                  "X": -603.9369,
+                  "Y": 78.6382,
+                  "Z": 303.8529
+                },
+                "TerritoryId": 960,
+                "MaximumDistance": 150
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

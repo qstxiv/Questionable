@@ -30,6 +30,7 @@ internal sealed class CommandHandler : IDisposable
     private readonly QuestWindow _questWindow;
     private readonly QuestSelectionWindow _questSelectionWindow;
     private readonly JournalProgressWindow _journalProgressWindow;
+    private readonly PriorityWindow _priorityWindow;
     private readonly ITargetManager _targetManager;
     private readonly QuestFunctions _questFunctions;
     private readonly GameFunctions _gameFunctions;
@@ -51,6 +52,7 @@ internal sealed class CommandHandler : IDisposable
         QuestWindow questWindow,
         QuestSelectionWindow questSelectionWindow,
         JournalProgressWindow journalProgressWindow,
+        PriorityWindow priorityWindow,
         ITargetManager targetManager,
         QuestFunctions questFunctions,
         GameFunctions gameFunctions,
@@ -69,6 +71,7 @@ internal sealed class CommandHandler : IDisposable
         _questWindow = questWindow;
         _questSelectionWindow = questSelectionWindow;
         _journalProgressWindow = journalProgressWindow;
+        _priorityWindow = priorityWindow;
         _targetManager = targetManager;
         _questFunctions = questFunctions;
         _gameFunctions = gameFunctions;
@@ -81,12 +84,11 @@ internal sealed class CommandHandler : IDisposable
         {
             HelpMessage = string.Join($"{Environment.NewLine}\t",
                 "Opens the Questing window",
+                "/qst help - displays simplified commands",
+                "/qst help-all - displays all available commands",
                 "/qst config - opens the configuration window",
                 "/qst start - starts doing quests",
-                "/qst stop - stops doing quests",
-                "/qst reload - reload all quest data",
-                "/qst which - shows all quests starting with your selected target",
-                "/qst zone - shows all quests starting in the current zone (only includes quests with a known quest path, and currently visible unaccepted quests)")
+                "/qst stop - stops doing quests"),
         });
 #if DEBUG
         _commandManager.AddHandler("/qst@", new CommandInfo(ProcessDebugCommand)
@@ -104,6 +106,40 @@ internal sealed class CommandHandler : IDisposable
         string[] parts = arguments.Split(' ');
         switch (parts[0])
         {
+            case "h":
+            case "help":
+                _chatGui.Print("Available commands:", MessageTag, TagColor);
+                _chatGui.Print("/qst - toggles the Questing window", MessageTag, TagColor);
+                _chatGui.Print("/qst help - displays simplified commands", MessageTag, TagColor);
+                _chatGui.Print("/qst help-all - displays all available commands", MessageTag, TagColor);
+                _chatGui.Print("/qst config - opens the configuration window", MessageTag, TagColor);
+                _chatGui.Print("/qst start - starts doing quests", MessageTag, TagColor);
+                _chatGui.Print("/qst stop - stops doing quests", MessageTag, TagColor);
+                _chatGui.Print("/qst reload - reload all quest data", MessageTag, TagColor);
+                break;
+
+            case "ha":
+            case "help-all":
+                _chatGui.Print("Available commands:", MessageTag, TagColor);
+                _chatGui.Print("/qst - toggles the Questing window", MessageTag, TagColor);
+                _chatGui.Print("/qst help - displays available commands", MessageTag, TagColor);
+                _chatGui.Print("/qst help-all - displays all available commands", MessageTag, TagColor);
+                _chatGui.Print("/qst config - opens the configuration window", MessageTag, TagColor);
+                _chatGui.Print("/qst start - starts doing quests", MessageTag, TagColor);
+                _chatGui.Print("/qst stop - stops doing quests", MessageTag, TagColor);
+                _chatGui.Print("/qst reload - reload all quest data", MessageTag, TagColor);
+                _chatGui.Print("/qst do <questId> - highlights the specified quest in the debug overlay (requires debug overlay to be enabled)", MessageTag, TagColor);
+                _chatGui.Print("/qst do - clears the highlighted quest in the debug overlay (requires debug overlay to be enabled)", MessageTag, TagColor);
+                _chatGui.Print("/qst next <questId> - sets the next quest to do (or clears it if no questId is specified)", MessageTag, TagColor);
+                _chatGui.Print("/qst sim <questId> [sequence] [step] - simulates the specified quest (or clears it if no questId is specified)", MessageTag, TagColor);
+                _chatGui.Print("/qst which - shows all quests starting with your selected target", MessageTag, TagColor);
+                _chatGui.Print("/qst zone - shows all quests starting in the current zone (only includes quests with a known quest path, and currently visible unaccepted quests)", MessageTag, TagColor);
+                _chatGui.Print("/qst journal - toggles the Journal Progress window", MessageTag, TagColor);
+                _chatGui.Print("/qst priority - toggles the Priority window", MessageTag, TagColor);
+                _chatGui.Print("/qst mountid - prints information about your current mount", MessageTag, TagColor);
+                _chatGui.Print("/qst handle-interrupt - makes Questionable handle queued interrupts immediately (useful if you manually start combat)", MessageTag, TagColor);
+                break;
+
             case "c":
             case "config":
                 _configWindow.ToggleOrUncollapse();
@@ -147,6 +183,11 @@ internal sealed class CommandHandler : IDisposable
             case "j":
             case "journal":
                 _journalProgressWindow.ToggleOrUncollapse();
+                break;
+
+            case "p":
+            case "priority":
+                _priorityWindow.ToggleOrUncollapse();
                 break;
 
             case "mountid":
