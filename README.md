@@ -11,20 +11,20 @@
 <!-- Badges -->
 <p align="center"> 
 <!-- Build & commit activity -->
-  <a href="https://github.com/qstxiv/Questionable/commits/main" alt="Commits">
-    <img src="https://img.shields.io/github/last-commit/qstxiv/Questionable/main?color=00D162&style=for-the-badge" /></a>
-   <a href="https://github.com/qstxiv/Questionable/commits/main" alt="Commit Activity">
-    <img src="https://img.shields.io/github/commit-activity/m/qstxiv/Questionable?color=00D162&style=for-the-badge" /></a>
+  <a href="https://github.com/PunishXIV/Questionable/commits/main" alt="Commits">
+    <img src="https://img.shields.io/github/last-commit/PunishXIV/Questionable/main?color=00D162&style=for-the-badge" /></a>
+   <a href="https://github.com/PunishXIV/Questionable/commits/main" alt="Commit Activity">
+    <img src="https://img.shields.io/github/commit-activity/m/PunishXIV/Questionable?color=00D162&style=for-the-badge" /></a>
   <br> 
 <!-- Other -->
-  <a href="https://github.com/qstxiv/Questionable/issues" alt="Open Issues">
-    <img src="https://img.shields.io/github/issues-raw/qstxiv/Questionable?color=EA9C0A&style=for-the-badge" /></a>
-  <a href="https://github.com/qstxiv/Questionable/graphs/contributors" alt="Contributors">
-    <img src="https://img.shields.io/github/contributors/qstxiv/Questionable?color=009009&style=for-the-badge" /></a>
+  <a href="https://github.com/PunishXIV/Questionable/issues" alt="Open Issues">
+    <img src="https://img.shields.io/github/issues-raw/PunishXIV/Questionable?color=EA9C0A&style=for-the-badge" /></a>
+  <a href="https://github.com/PunishXIV/Questionable/graphs/contributors" alt="Contributors">
+    <img src="https://img.shields.io/github/contributors/PunishXIV/Questionable?color=009009&style=for-the-badge" /></a>
 <br>
 <!-- Version -->
-  <a href="https://github.com/qstxiv/Questionable/tags" alt="Release">
-    <img src="https://img.shields.io/github/v/tag/qstxiv/Questionable?label=Release&logo=git&logoColor=ffffff&style=for-the-badge" /></a>
+  <a href="https://github.com/PunishXIV/Questionable/tags" alt="Release">
+    <img src="https://img.shields.io/github/v/tag/PunishXIV/Questionable?label=Release&logo=git&logoColor=ffffff&style=for-the-badge" /></a>
 <br>
   <!-- Discord -->
   <a href="https://discord.gg/Zzrcc8kmvy" alt="Discord">
@@ -40,7 +40,7 @@
 
 <p> Questionable is a third-party plugin for <a href="https://goatcorp.github.io/" alt="XIVLauncher">XIVLauncher</a>.<br><br>
     It automates quest completion by navigating to objectives while also handling dialogue, interaction, and task fulfillment for eligible quests, streamlining all quest progression processes. <br><br>
-    This plugin was originated by <a href="https://github.com/carvelli" alt="Liza">Liza</a> and is maintained by <a href="https://github.com/WigglyMuffin" alt="WigglyMuffin">WigglyMuffin</a>, <a href="https://github.com/Akechi-kun" alt="Akechi">Akechi</a>, <a href="https://github.com/nightmarexiv" alt="Limiana">Limiana</a>, and <a href="https://github.com/alyssadev" alt="alydev">alydev</a>.
+    This plugin was originated by <a href="https://github.com/carvelli" alt="Liza">Liza</a> and is maintained by <a href="https://github.com/nightmarexiv" alt="Limiana">Limiana</a>, <a href="https://github.com/Akechi-kun" alt="Akechi">Akechi</a>, <a href="https://github.com/WigglyMuffin" alt="WigglyMuffin">WigglyMuffin</a>, and <a href="https://github.com/alyssadev" alt="alydev">alydev</a>.
 </p>
 
 <!-- Required Companion Plugins -->
@@ -108,13 +108,13 @@ This can be done through `/xlplugins` in the chat.
 
 Contributions to the project are always welcome and much appreciated!<br><br>
 
-Please feel free to submit a [pull request](https://github.com/qstxiv/Questionable/pulls) here on GitHub,
+Please feel free to submit a [pull request](https://github.com/PunishXIV/Questionable/pulls) here on GitHub,
 or you can get in contact with us over on the [Discord](https://discord.gg/Zzrcc8kmvy) server inside the `#ffxiv-Questionable` channel.
 
 <!-- Punish Logo & Discord -->
 <div align="center">
   <a href="https://puni.sh/" alt="Puni.sh">
-    <img src="https://github.com/qstxiv/AutoHook/assets/13919114/a8a977d6-457b-4e43-8256-ca298abd9009" /></a>
+    <img src="https://github.com/PunishXIV/AutoHook/assets/13919114/a8a977d6-457b-4e43-8256-ca298abd9009" /></a>
 <br>
   <a href="https://discord.gg/Zzrcc8kmvy" alt="Discord">
     <img src="https://discordapp.com/api/guilds/1001823907193552978/embed.png?style=banner2" /></a>
