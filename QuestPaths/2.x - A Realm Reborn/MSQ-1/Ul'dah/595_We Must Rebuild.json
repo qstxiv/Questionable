@@ -32,16 +32,6 @@
           "TargetTerritoryId": 131
         },
         {
-          "TerritoryId": 131,
-          "InteractionType": "AttuneAethernetShard",
-          "AethernetShard": "[Ul'dah] The Chamber of Rule"
-        },
-        {
-          "TerritoryId": 131,
-          "InteractionType": "AttuneAethernetShard",
-          "AethernetShard": "[Ul'dah] Alchemists' Guild"
-        },
-        {
           "DataId": 1003995,
           "Position": {
             "X": 75.33374,

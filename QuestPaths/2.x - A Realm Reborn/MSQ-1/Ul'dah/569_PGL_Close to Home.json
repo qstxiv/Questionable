@@ -78,13 +78,27 @@
           "AethernetShard": "[Ul'dah] Gladiators' Guild"
         },
         {
+          "TerritoryId": 131,
+          "InteractionType": "AttuneAethernetShard",
+          "AethernetShard": "[Ul'dah] The Chamber of Rule"
+        },
+        {
+          "TerritoryId": 131,
+          "InteractionType": "AttuneAethernetShard",
+          "AethernetShard": "[Ul'dah] Alchemists' Guild"
+        },
+        {
           "Position": {
             "X": -112.64317,
             "Y": 7.734872,
             "Z": 9.960203
           },
           "TerritoryId": 131,
-          "InteractionType": "WalkTo"
+          "InteractionType": "WalkTo",
+          "AethernetShortcut": [
+            "[Ul'dah] Alchemists' Guild",
+            "[Ul'dah] Gladiators' Guild"
+          ]
         },
         {
           "TerritoryId": 130,
@@ -110,19 +124,6 @@
           ]
         },
         {
-          "DataId": 1001286,
-          "Position": {
-            "X": -88.9754,
-            "Y": 2.55,
-            "Z": -51.163513
-          },
-          "TerritoryId": 130,
-          "InteractionType": "AcceptQuest",
-          "PickUpQuestId": 345,
-          "Disabled": true,
-          "Comment": "Level 1 class quest isn't finished"
-        },
-        {
           "TerritoryId": 130,
           "InteractionType": "AttuneAetheryte",
           "Aetheryte": "Ul'dah",
@@ -134,6 +135,17 @@
             null,
             128
           ]
+        },
+        {
+          "DataId": 1001286,
+          "Position": {
+            "X": -88.9754,
+            "Y": 2.55,
+            "Z": -51.163513
+          },
+          "TerritoryId": 130,
+          "InteractionType": "AcceptQuest",
+          "PickUpQuestId": 533
         }
       ]
     },

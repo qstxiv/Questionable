@@ -75,7 +75,21 @@
         {
           "TerritoryId": 131,
           "InteractionType": "AttuneAethernetShard",
-          "AethernetShard": "[Ul'dah] Gladiators' Guild"
+          "AethernetShard": "[Ul'dah] The Chamber of Rule"
+        },
+        {
+          "TerritoryId": 131,
+          "InteractionType": "AttuneAethernetShard",
+          "AethernetShard": "[Ul'dah] Alchemists' Guild"
+        },
+        {
+          "TerritoryId": 131,
+          "InteractionType": "AttuneAethernetShard",
+          "AethernetShard": "[Ul'dah] Gladiators' Guild",
+          "AethernetShortcut": [
+            "[Ul'dah] Alchemists' Guild",
+            "[Ul'dah] Goldsmiths' Guild"
+          ]
         },
         {
           "DataId": 1002277,
@@ -154,6 +168,7 @@
           },
           "TerritoryId": 130,
           "InteractionType": "CompleteQuest",
+		  "NextQuestId": 253,
           "AethernetShortcut": [
             "[Ul'dah] Aetheryte Plaza",
             "[Ul'dah] Adventurers' Guild"
