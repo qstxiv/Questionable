@@ -126,11 +126,11 @@ jobs:
       - name: Prepare release artifacts
         run: |
           echo "Preparing release artifacts..."
-          mkdir -p release
+          mkdir -p release/testing
           
           # Check if build outputs exist
           if [ -f "Questionable/dist/Questionable/latest.zip" ]; then
-            cp "Questionable/dist/Questionable/latest.zip" "release/testing.zip"
+            cp "Questionable/dist/Questionable/latest.zip" "release/testing/latest.zip"
             echo "Copied plugin zip"
           else
             echo "Warning: latest.zip not found"
@@ -216,7 +216,7 @@ jobs:
             ${{ steps.changelog.outputs.changelog }}
             
             ### Installation Files
-            - `testing.zip` - **Plugin archive for installation**
+            - `testing/latest.zip` - **Plugin archive for installation**
             - `Questionable.json` - Plugin manifest
             - `*.sha256` - Checksums for verification
             
