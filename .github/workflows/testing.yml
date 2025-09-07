@@ -233,6 +233,9 @@ jobs:
 
   regen-pluginmaster:
     needs: build-and-release
+    runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.detect-version-change.outputs.version }}
     steps:
       - name: Regenerate pluginmaster.json
         uses: peter-evans/repository-dispatch@v3
