@@ -30,7 +30,7 @@ jobs:
       - name: Extract version from Directory.Build.targets
         id: get-version
         run: |
-          sha_short=$(git rev-parse --short HEAD)"
+          sha_short=$(git rev-parse --short HEAD)
           # Extract version using xmllint for more reliable parsing
           if command -v xmllint >/dev/null 2>&1; then
             VERSION=$(xmllint --xpath "string(//PropertyGroup/Version)" Directory.Build.targets 2>/dev/null || true)
