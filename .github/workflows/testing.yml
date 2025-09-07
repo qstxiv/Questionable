@@ -231,6 +231,9 @@ jobs:
           prerelease: false
           generate_release_notes: true
 
+  regen-pluginmaster:
+    needs: build-and-release
+    steps:
       - name: Regenerate pluginmaster.json
         uses: peter-evans/repository-dispatch@v3
         with:
